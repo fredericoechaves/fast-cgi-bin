@@ -1,5 +1,7 @@
 FROM nginx
 LABEL version="1.0" maintainer="Frederico E. Chaves <frederico.chaves@gmail.com>"
+COPY static /app/static
+COPY cgi-bin /app/cgi-bin
 COPY ./fcgiwrap/sources.list /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install spawn-fcgi fcgiwrap -y
